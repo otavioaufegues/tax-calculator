@@ -1,12 +1,12 @@
-import buyHandler from "../operations/buyHandler.js";
-import sellHandler from "../operations/sellHandler.js";
+const buyHandler = require("../operations/buyHandler");
+const sellHandler = require("../operations/sellHandler");
 
 const functionMap = {
     "buy": buyHandler,
     "sell": sellHandler
 };
 
-export default function processOperation(operations) {
+module.exports = function processOperation(operations) {
     let stockState = { amount: 0, avgPrice: 0, profit: 0, tax: [] };
 
     operations.map((operation) => {

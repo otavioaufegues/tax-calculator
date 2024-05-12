@@ -1,9 +1,9 @@
-import { profitCalculator, taxCalculator } from "../utils/calculator.js";
+const calculator = require('../utils/calculator');
 
-export default function buyHandler({ operation, state }) {
-    state.profit += profitCalculator({ operation: operation, currentAvgPrice: state.avgPrice });
+module.exports = function sellHandler({ operation, state }) {
+    state.profit += calculator.profitCalculator({ operation: operation, currentAvgPrice: state.avgPrice });
 
-    const operationTax = taxCalculator({ operation: operation, profit: state.profit });
+    const operationTax = calculator.taxCalculator({ operation: operation, profit: state.profit });
 
     if (operationTax > 0) {
         state.profit = 0;
