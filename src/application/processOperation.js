@@ -1,5 +1,5 @@
-import buyHandler from "../operations/buy.js";
-import sellHandler from "../operations/sell.js";
+import buyHandler from "../operations/buyHandler.js";
+import sellHandler from "../operations/sellHandler.js";
 
 const functionMap = {
     "buy": buyHandler,
