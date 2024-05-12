@@ -36,8 +36,8 @@
 # Instalar dependências
 npm install
 
-# Rodar script de teste
-npm run test
+# Executar testes
+npm test
 ```
 
 # Executar a aplicação
