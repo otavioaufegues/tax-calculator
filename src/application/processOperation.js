@@ -10,7 +10,6 @@ export default function processOperation(operations) {
     let stockState = { amount: 0, avgPrice: 0, profit: 0, tax: [] };
 
     operations.map((operation) => {
-
         const messageFunction = operation.operation.toLowerCase();
         const selectedFunction = functionMap[messageFunction];
 
