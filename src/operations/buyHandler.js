@@ -1,4 +1,4 @@
-import { avgPriceCalculator } from '../utils/calculator';
+import { avgPriceCalculator } from '../utils/calculator.js';
 
 export default function buyHandler({ operation, state }) {
     const operationTax = 0;

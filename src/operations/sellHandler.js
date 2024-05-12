@@ -1,4 +1,4 @@
-import { profitCalculator, taxCalculator } from '../utils/calculator';
+import { profitCalculator, taxCalculator } from '../utils/calculator.js';
 
 export default function sellHandler({ operation, state }) {
     state.profit += profitCalculator({ operation: operation, currentAvgPrice: state.avgPrice });

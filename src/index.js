@@ -1,4 +1,4 @@
-import processOperation from './application/processOperation';
+import processOperation from './application/processOperation.js';
 import { createInterface } from 'readline';
 
 const results = [];
