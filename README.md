@@ -24,7 +24,7 @@
     - Cada módulo é testado separdamente
 - Foi implementado um teste de integração que está na pasta `teste/` onde todos os casos do enunciado são testado como entradas e são comparados com as saídas esperadas.  
 
-## Executando os testes
+# Executar os testes
 
 - Foi utilizada a framework `jest` para os testes da aplicação,
 
@@ -40,9 +40,7 @@ npm install
 npm run test
 ```
 
-## Executando a aplicação
-
-### Localmente
+# Executar a aplicação
 
 - Requisitos:
   - Ambiente: [Nodejs 20.13](https://nodejs.org/en/download/)
