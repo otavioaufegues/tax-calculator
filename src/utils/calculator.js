@@ -4,8 +4,9 @@ export function avgPriceCalculator({ operation, currentAvgPrice, currentAmount }
 
 export function taxCalculator({ operation, profit }) {
     const taxFreeMax = 20000, taxPercent = 0.2;
+    const operationValue = operation['quantity'] * operation['unit-cost'];
 
-    if (profit > 0 && operation['quantity'] * operation['unit-cost'] >= taxFreeMax) {
+    if (profit > 0 && operationValue >= taxFreeMax) {
         return profit * taxPercent;
     }
 
@@ -13,5 +14,5 @@ export function taxCalculator({ operation, profit }) {
 }
 
 export function profitCalculator({ operation, currentAvgPrice }) {
-    return ((operation['quantity'] * operation['unit-cost']) - (operation['quantity'] * currentAvgPrice))
+    return ((operation['quantity'] * operation['unit-cost']) - (operation['quantity'] * currentAvgPrice));
 }

@@ -1,29 +1,25 @@
-import { avgPriceCalculator, profitCalculator, taxCalculator } from "../utils/calculator.js";
+import buyHandler from "../operations/buy.js";
+import sellHandler from "../operations/sell.js";
+
+const functionMap = {
+    "buy": buyHandler,
+    "sell": sellHandler
+};
 
 export default function processOperation(operations) {
-    let amount = 0, avgPrice = 0, profit = 0;
-    const tax = [];
+    let stockState = { amount: 0, avgPrice: 0, profit: 0, tax: [] };
 
     operations.map((operation) => {
-        let operationTax = 0;
-        if (operation['operation'] === 'buy') {
-            avgPrice = avgPriceCalculator({ operation: operation, currentAvgPrice: avgPrice, currentAmount: amount });
-            amount += operation['quantity'];
-            tax.push({ "tax": operationTax.toFixed(2) });
-        }
 
-        if (operation['operation'] === 'sell') {
-            profit += profitCalculator({ operation: operation, currentAvgPrice: avgPrice });
-            operationTax = taxCalculator({ operation: operation, profit: profit });
+        const messageFunction = operation.operation.toLowerCase();
+        const selectedFunction = functionMap[messageFunction];
 
-            if (operationTax > 0) {
-                profit = 0;
-            }
-
-            amount -= operation['quantity'];
-            tax.push({ "tax": operationTax.toFixed(2) });
+        if (selectedFunction) {
+            stockState = selectedFunction({ operation: operation, state: stockState });
+        } else {
+            process.stdout.write('Função não encontrada para: ' + messageFunction + '\n');
         }
     });
 
-    return JSON.stringify(tax);
+    return JSON.stringify(stockState.tax);
 }
