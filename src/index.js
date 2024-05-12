@@ -9,12 +9,14 @@ const rl = createInterface({
 });
 
 rl.on('line', (line) => {
+    let stockState = { amount: 0, avgPrice: 0, profit: 0, tax: [] };
+
     if (line.trim() === '') {
         rl.close();
         return;
     }
     const operations = JSON.parse(line);
-    results.push(JSON.stringify(processOperation(operations).tax));
+    results.push(JSON.stringify(processOperation({ operations: operations, stockState: stockState }).tax));
 })
 
 rl.on('close', () => {

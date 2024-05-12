@@ -17,6 +17,7 @@ const cases = [
 
 describe("Integration tests", () => {
     test.each(cases)("Case: %p", (inputCase) => {
+        let stockState = { amount: 0, avgPrice: 0, profit: 0, tax: [] };
         let results = [];
         let expectOutputArray = [];
         const rlInput = createInterface({
@@ -32,7 +33,7 @@ describe("Integration tests", () => {
             }
 
             const operations = JSON.parse(line);
-            results.push(processOperation(operations).tax);
+            results.push(processOperation({ operations: operations, stockState: stockState }).tax);
         });
 
         const rlOutput = createInterface({
