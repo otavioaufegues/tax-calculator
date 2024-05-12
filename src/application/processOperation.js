@@ -20,5 +20,5 @@ export default function processOperation(operations) {
         }
     });
 
-    return JSON.stringify(stockState.tax);
+    return stockState;
 }

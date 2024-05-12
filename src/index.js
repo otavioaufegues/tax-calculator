@@ -14,7 +14,7 @@ rl.on('line', (line) => {
         return;
     }
     const operations = JSON.parse(line);
-    results.push(processOperation(operations));
+    results.push(JSON.stringify(processOperation(operations).tax));
 })
 
 rl.on('close', () => {
