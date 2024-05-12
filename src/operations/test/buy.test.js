@@ -1,4 +1,4 @@
-const buyHandler = require('../buyHandler.js');
+import buyHandler from '../buyHandler.js';
 
 describe("Buy Operation", () => {
     it("Should update Amount on State", () => {

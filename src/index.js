@@ -1,9 +1,9 @@
-const processOperation = require('./application/processOperation');
-const readline = require('readline');
+import processOperation from './application/processOperation';
+import { createInterface } from 'readline';
 
 const results = [];
 
-const rl = readline.createInterface({
+const rl = createInterface({
     input: process.stdin,
     output: process.stdout
 });

@@ -1,5 +1,5 @@
-const sellHandler = require('../sellHandler.js');
-const buyHandler = require('../buyHandler.js');
+import sellHandler from '../sellHandler.js';
+import buyHandler from '../buyHandler.js';
 
 describe("Sell Operation", () => {
     it("Should update tax on State", () => {
