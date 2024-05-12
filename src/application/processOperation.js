@@ -1,8 +1,8 @@
-import { avgPriceCalculator, profitCalculator } from "../utils/calculator.js";
+import { avgPriceCalculator, profitCalculator, taxCalculator } from "../utils/calculator.js";
 
 export default function processOperation(operations) {
     let amount = 0, avgPrice = 0, profit = 0;
-    const taxFreeMax = 20000, tax = [], taxValue = 0.2;
+    const tax = [];
 
     operations.map((operation) => {
         let operationTax = 0;
@@ -14,9 +14,9 @@ export default function processOperation(operations) {
 
         if (operation['operation'] === 'sell') {
             profit += profitCalculator({ operation: operation, currentAvgPrice: avgPrice });
+            operationTax = taxCalculator({ operation: operation, profit: profit });
 
-            if (profit > 0 && operation['quantity'] * operation['unit-cost'] >= taxFreeMax) {
-                operationTax = profit * taxValue;
+            if (operationTax > 0) {
                 profit = 0;
             }
 
