@@ -28,6 +28,6 @@ describe("Buy Operation", () => {
         buyHandler({ operation: operation, state: stockState });
         const taxResult = stockState.tax[0].tax;
 
-        expect(taxResult).toEqual('0.00');
+        expect(taxResult).toEqual(0);
     })
 });

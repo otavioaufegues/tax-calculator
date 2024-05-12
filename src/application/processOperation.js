@@ -15,8 +15,6 @@ export default function processOperation(operations) {
 
         if (selectedFunction) {
             stockState = selectedFunction({ operation: operation, state: stockState });
-        } else {
-            process.stdout.write('Função não encontrada para: ' + messageFunction + '\n');
         }
     });
 

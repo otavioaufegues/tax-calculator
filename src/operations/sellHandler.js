@@ -10,7 +10,7 @@ export default function sellHandler({ operation, state }) {
     }
 
     state.amount -= operation['quantity'];
-    state.tax.push({ "tax": operationTax.toFixed(2) });
+    state.tax.push({ "tax": parseFloat(operationTax.toFixed(2)) });
 
     return state;
 };

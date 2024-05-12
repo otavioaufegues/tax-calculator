@@ -5,7 +5,7 @@ export default function buyHandler({ operation, state }) {
 
     state.avgPrice = avgPriceCalculator({ operation: operation, currentAvgPrice: state.avgPrice, currentAmount: state.amount });
     state.amount += operation['quantity'];
-    state.tax.push({ "tax": operationTax.toFixed(2) });
+    state.tax.push({ "tax": parseFloat(operationTax.toFixed(2)) });
 
     return state;
 };
